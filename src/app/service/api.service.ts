@@ -7,11 +7,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ApiService {
 
-  serverUrl = 'http://localhost:3000'
+  serverUrl = 'https://employeeportal-backend-iy1q.onrender.com/'
 
     //create object for behaviorSubject
   shareData = new BehaviorSubject(false)
-
   constructor(private http:HttpClient) {  }
 
   //function to update behaviour subject

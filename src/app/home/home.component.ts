@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit {
   admin:any={}
 
   editStatus:boolean=true
+
+  status:boolean=true
+
     profileImage:string="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr3IzsWIYIQxmhU7_59zfM5y1fJLqwoQrA2HAm5QlBWA-Jm13LwEdWy0XVRR7WIzHV42c&usqp=CAU"
 
   constructor(private api:ApiService){
@@ -87,6 +90,10 @@ export class HomeComponent implements OnInit {
         }
     ]
     }
+  }
+
+  changeStatus(){
+    this.status=!this.status
   }
 
   ngOnInit(): void {
