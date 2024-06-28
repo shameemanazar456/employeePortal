@@ -1,0 +1,25 @@
+<div class="row w-100 mt-5 d-flex justify-content-center align-items-center " style="height: 80vh; ">
+    <div class="col-md-1"></div>
+    <div class="col-md-6 d-flex justify-content-center align-items-center ">
+        <img src="https://www.shutterstock.com/image-vector/man-key-near-computer-account-260nw-1499141258.jpg" alt="">
+    </div>
+    <div class="col-md-4 d-flex justify-content-center align-items-center " >
+        <form (ngSubmit)="login()" class="shadow p-4 rounded w-100" action="" style="background-image: linear-gradient(to right,rgb(115, 180, 156),rgb(66, 177, 140) );">
+            <h3 class="text-dark mb-3 fs-3 text-center"><b>Login Form</b></h3>
+            <div class="mb-3">
+                <input #loginEmail="ngModel" type="text " name="mail" placeholder="Email" class="form-control" [(ngModel)]="mailId" required email> 
+                <span *ngIf="loginEmail.invalid && loginEmail.touched" class="text-danger">*Invalid Input</span>
+            </div>
+            <div class="mb-3">
+                <input #loginpswd="ngModel" type="password " placeholder="Password" name="pswd" class="form-control" [(ngModel)]="password" required  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{4,}$">
+                <span *ngIf="loginpswd.invalid && loginpswd.touched" class="text-danger">*Invalid Input</span>
+            </div>
+            <div>
+                <button [disabled]="loginEmail.invalid || loginpswd.invalid"type="submit" class="btn w-100" style="background-color: rgb(32, 172, 125);color: white;">Login</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-md-1"></div>
+
+</div>

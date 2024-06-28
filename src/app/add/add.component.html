@@ -1,0 +1,43 @@
+<div class="d-flex">
+    <div style="height: 99vh; width: 250px; background-color: rgb(32, 172, 125) ;">
+        <div class="d-flex align-items-center justify-content-center flex-column">
+            <a routerLink="/dashboard"  class="mt-5 text-light fs-5"  style="text-decoration: none;">DashBoard</a>
+            <a routerLink="/employee" class="mt-3 text-light fs-5"   style="text-decoration: none;">Employees</a>
+        </div>
+    </div>
+<div class="row w-100 mt-4">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 mt-5 ">
+        <h1 class="text-center text-primary" style="font-family:Ubuntu Sans Mono, monospace; font-weight: 800;">Add New Employee Details</h1>
+    
+        <div class="mt-4 px-5 py-2 shadow w-100 d-flex justify-content-center flex-column">
+            <form #addForm="ngForm" action="" (ngSubmit)="addUser()">
+                <input #addId="ngModel" type="text" name="empid" class="form-control mt-5 w-100" placeholder="User Id"  id="" [(ngModel)] = "employeeDetails.id" required="" pattern="^[0-9]*$">
+                <span *ngIf="addId.invalid && addId.touched" class="text-danger">*Invalid Input</span>
+
+                <input #addName="ngModel"  type="text" name="empName" class="form-control mt-3 w-100" placeholder="User Name"  id="" [(ngModel)] = "employeeDetails.name" required pattern="^[a-zA-z,{3,}]*$">
+                <span  *ngIf="addName.invalid && addName.touched" class="text-danger">*Invalid Input</span>
+
+                <input #addMail="ngModel" type="email" name="empMail" class="form-control mt-3 w-100" placeholder="Email "  id="" [(ngModel)] = "employeeDetails.email" required email>
+                <span  *ngIf="addMail.invalid && addMail.touched" class="text-danger">*Invalid Input*</span>
+                <div class="form-floating mt-3">
+                    <select #addStatus="ngModel" class="form-select" id="floatingSelect" aria-label="Floating label select example" name="empStatus" [(ngModel)]="employeeDetails.status" required >
+                      <option selected></option>
+                      <option value="1">Active</option>
+                      <option value="2">Inactive</option>
+                    </select>
+                    <label for="floatingSelect">Status</label>
+                  </div>
+                  <span  *ngIf="addStatus.invalid && addStatus.touched" class="text-danger">*Invalid Input*</span>
+
+                <div class="d-flex mt-3">
+                    <button class="btn btn-warning" (click)="cancel()">Cancel</button>
+                    <button [disabled]="addForm.invalid" type="submit" class="btn btn-success ms-4">Add</button>
+                </div>
+        
+            </form>
+    
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
